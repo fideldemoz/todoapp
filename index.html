@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+	<title>Todo App</title>
+</head>
+<body>
+	<header><h1>To do app</h1></header>
+	<main>
+		<nav>
+			<ul>
+				<li><button class="home active">Home</button></li>
+				<li><button class="today">Today</button></li>
+				<li><button class="week">Week</button></li>
+				<li>
+					<button class="projects">Projects</button>
+					<button class="plus add-project"><img src="add_icon.svg" alt=""></button>
+					<form action="/" class="add-project">
+						<legend>Add Project</legend>
+						<div class="line">
+							<label for="project-title">Title:</label>
+							<input type="text" id="project-name">
+							<input type="submit" value="add">
+						</div>
+					</form>
+					<ul class="projects">
+						<li><button>One</button></li>
+					</ul>
+				</li>
+				<li><button class="notes">Notes</button></li>
+			</ul>
+		</nav>
+		<section class="main">
+			<h1 class="title"></h1>
+			<button class="add-task">	<svg xmlns="http://www.w3.org/2000/svg" fill="#000" height="32" viewBox="0 -960 960 960" width="32"><path d="M450-450H200v-60h250v-250h60v250h250v60H510v250h-60v-250Z"/></svg>	<span>Add task</span></button>
+			<div class="overlay"></div>
+			<form action="" class="add-task-form">
+				<legend>Add Task</legend>
+				<label for="title">Title</label>
+				<input type="text" name="title" id="title">
+				<label for="due">Due date</label>
+				<input type="date" name="due" id="due">
+				<label for="priority">Priority</label>
+				<select name="priority" id="priority">
+					<option value="high">High</option>
+					<option value="medium">Medium</option>
+					<option value="low">Low</option>
+				</select>
+				<label for="details">Details</label>
+				<textarea name="details" id="details" cols="30" rows="10"></textarea>
+				<input type="submit" name="submit" id="submit">
+			</form>
+			<div class="items"></div>
+		</section>
+	</main>
+	<footer>&copy; Fidel &mdash; <a class="github" href="github.com/fideldemoz">Github Profile</a></footer>
+</body>
+</html>
