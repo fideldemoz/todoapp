@@ -1,0 +1,2 @@
+- Create constructor for Task and project - done;
+- build skeleton page
