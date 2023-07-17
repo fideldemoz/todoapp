@@ -1,2 +1,3 @@
 - Create constructor for Task and project and Note - done;
-- build skeleton page
+- build skeleton page - done
+- create dom listeners to open forms - done

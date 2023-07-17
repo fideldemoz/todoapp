@@ -130,3 +130,6 @@ button.add-task {
 	border: 1px solid black;
 	margin: 3px;
 }
+form.show {
+	display: grid;
+}
