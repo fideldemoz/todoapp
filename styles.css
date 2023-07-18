@@ -113,7 +113,7 @@ button.add-task {
 	left: 0;
 	top: 0;
 	height: 100vh;
-	z-index: -1;
+	z-index: 0;
 }
 .add-task-form {
 	border: 2px solid black;
@@ -132,4 +132,5 @@ button.add-task {
 }
 form.show {
 	display: grid;
+	z-index: 2;
 }
