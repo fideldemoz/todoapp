@@ -110,6 +110,7 @@ function clickProject () {
 	btnList.forEach((element,i) => {
 		i++
 			element.addEventListener("click", () => {
+				show()
 				openProject(projects[i],i)
 			});
 	})
@@ -130,9 +131,38 @@ addNoteBtn.addEventListener("click", () => {
 })
 overlay.addEventListener("click", closeForm)
 
-
+function getDailyTasks() {
+	const today = new Date(),
+	dailyTasks = new Project ('daily');
+	projects.forEach( function(project, index) {
+		project.tasks.forEach( function(task, index) {
+			if (format(today, 'MM-dd-yyyy') === format(task.due, 'MM-dd-yyyy')) {
+				dailyTasks.tasks.push(task);
+			}
+		});
+	});
+	openProject(dailyTasks,0);
+	hide()
+}
+function getWeeklyTasks() {
+	const today = new Date(),
+	lastDay = today+5;
+	console.log(lastDay)
+}
+getWeeklyTasks()
+function hide() {
+	addTaskBtn.classList.add('hide');
+	addNoteBtn.classList.add('hide');
+}
+function show() {
+	addTaskBtn.classList.remove('hide');
+	addNoteBtn.classList.remove('hide');
+}
 
 export  {
 	openProject,
 	projects,
+	getDailyTasks,
+	show,
 }; 
+

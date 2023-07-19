@@ -9,6 +9,7 @@ addTaskBtn = document.querySelector("button.add-task"),
 addNoteBtn = document.querySelector("button.add-note"),
 projectsNode = document.querySelector("ul.projects"),
 homeBtn = document.querySelector("button.home"),
+todayBtn = document.querySelector("button.today"),
 myDate = document.querySelector("#due"),
 today = new Date();
 myDate.value = today.toISOString().substr(0, 10);
@@ -40,5 +41,6 @@ export {
 	closeForm,
 	homeBtn,
 	myDate,
-	today
+	today,
+	todayBtn,
 }

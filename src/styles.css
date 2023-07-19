@@ -146,3 +146,9 @@ form.show {
 	display: flex;
 	gap: 1rem;
 }
+button.hide {
+	display: none;
+}
+div.items {
+	margin-top: 3rem;
+}

@@ -7,5 +7,6 @@
 	- create notes functions - done
 	- install webpack - done
 	- create default folder - done
-	- create dinamic folders
-		- create daily tasks function
+	- create dinamic folders - ongoing
+		- create daily tasks function - done
+		- create weekly tasks fn

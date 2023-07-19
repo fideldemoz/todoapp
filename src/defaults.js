@@ -1,7 +1,11 @@
-import {homeBtn} from './dom';
-import {openProject, projects} from './app';
+import {homeBtn, todayBtn} from './dom';
+import {openProject, projects,getDailyTasks, show} from './app';
 
 openProject(projects[0],0);
 homeBtn.addEventListener("click", function () {
-	openProject(projects[0],0)
+	show();
+	openProject(projects[0],0);
+})
+todayBtn.addEventListener("click", function () {
+	getDailyTasks()
 })
