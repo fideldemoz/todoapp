@@ -1,0 +1,22 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "(Copied from theodinProject) ### Introduction At this point you've already had a fair amount of practice using the various techniques we've shown you. But we've been throwing a _lot_ of information your way, so before we move on we're going to take a minute to slow down and work on one more great portfolio project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "save-dev": "^0.0.1-security",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3"
+  }
+}

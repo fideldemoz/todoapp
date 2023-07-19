@@ -1,3 +1,10 @@
 - Create constructor for Task and project and Note - done;
 - build skeleton page - done
 - create dom listeners to open forms - done
+- create the app - 
+	- create project functions - done
+	- create task functions - done;
+	- create notes functions - done
+	- install webpack - done
+	- create default folder - 
+	- create dinamic folders - 

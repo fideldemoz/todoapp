@@ -17,7 +17,7 @@ header {
 }
 main {
 	display: grid;
-	grid-template-columns: 180px 1fr;
+	grid-template-columns: 240px 1fr;
 }
 nav {
 	border-right: 1px solid #ccc;
@@ -97,7 +97,7 @@ form.add-project input[type="submit"] {
 	padding: .2rem .6rem;
 	margin: 1px;
 }
-button.add-task {
+button.add-task, button.add-note {
 	display: flex;
 	align-items: center;
 	padding: 4px 8px;
@@ -115,17 +115,19 @@ button.add-task {
 	height: 100vh;
 	z-index: 0;
 }
-.add-task-form {
+.add-task-form, .add-note-form{
 	border: 2px solid black;
 	width: 550px;
 	padding: 20px 100px;
 	z-index: 2;
-	position: relative;
+	position: absolute;
 	margin: 0 auto;
+	left: 30%;
 	display: grid;
 	display: none;
+	background-color: #aaa;
 }
-.add-task-form input {
+.add-task-form input, .add-note-form input {
 	padding: 8px 1rem;
 	border: 1px solid black;
 	margin: 3px;
@@ -133,4 +135,14 @@ button.add-task {
 form.show {
 	display: grid;
 	z-index: 2;
+}
+.items {
+	width: 80%;
+	height: 300px;
+	margin: 0 auto;
+	background-color: #ddd;
+}
+.btns {
+	display: flex;
+	gap: 1rem;
 }

@@ -22,17 +22,17 @@ class Project {
 	}
 }
 class Task {
-	constructor (title, due, priority, ...checklist) {
+	constructor (title, due, priority, details) {
 		this.title = title;
 		this.due = new Date(due);
 		this.priority = priority;
-		this.checklist = checklist;
+		this.details = details;
 	}
-	edit(title, due, priority, ...checklist) {
+	edit(title, due, priority, details) {
 		this.title = title;
 		this.due = new Date(due);
 		this.priority = priority;
-		this.checklist = checklist;
+		this.details = details;
 	}
 }
 class Note {
@@ -40,8 +40,14 @@ class Note {
 		this.title = title;
 		this.text = text;
 	}
-	edit (text,title) {
+	edit (title,text) {
 		this.title = title;
 		this.text = text;
 	}
+}
+
+export {
+	Project,
+	Task,
+	Note,
 }
