@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="dom.bundle.js" defer></script>
 	<script  src="constructor.bundle.js" defer></script>
-	<script  src="app.bundle.js" defer></script>
+	<!-- <script  src="app.bundle.js" defer></script> -->
+	<script src="defaults.bundle.js" defer></script>
 	<title>Todo App</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
 	<main>
 		<nav>
 			<ul>
-				<li><button class="home active">Home</button></li>
+				<li><button class="home active">Default</button></li>
 				<li><button class="today">Today</button></li>
 				<li><button class="week">Week</button></li>
 				<li>
@@ -44,7 +44,7 @@
 				<label for="title">Title</label>
 				<input type="text" name="title" id="title">
 				<label for="due">Due date</label>
-				<input type="date" name="due" id="due">
+				<input type="date" name="due" id="due" required>
 				<label for="priority">Priority</label>
 				<select name="priority" id="priority">
 					<option value="high">High</option>
