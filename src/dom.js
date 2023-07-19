@@ -8,13 +8,13 @@ addProjectBtn = document.querySelector("button.plus"),
 addTaskBtn = document.querySelector("button.add-task"),
 addNoteBtn = document.querySelector("button.add-note"),
 projectsNode = document.querySelector("ul.projects"),
+homeBtn = document.querySelector("button.home"),
 myDate = document.querySelector("#due"),
 today = new Date();
 myDate.value = today.toISOString().substr(0, 10);
 
 function toggleProjectForm () {
 	 Projectform.classList.toggle("show");
-	 console.log('toggle')
 }
 function openForm (node) {
 	overlay.classList.toggle('overlay');
@@ -28,14 +28,17 @@ function closeForm () {
 
 export {
 	Projectform,
-Taskform,
-Noteform,
-overlay,
-addProjectBtn,
-addTaskBtn,
-addNoteBtn,
-projectsNode,
-toggleProjectForm,
-openForm,
-closeForm
+	Taskform,
+	Noteform,
+	overlay,
+	addProjectBtn,
+	addTaskBtn,
+	addNoteBtn,
+	projectsNode,
+	toggleProjectForm,
+	openForm,
+	closeForm,
+	homeBtn,
+	myDate,
+	today
 }
