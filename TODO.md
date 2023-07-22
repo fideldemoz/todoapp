@@ -9,4 +9,5 @@
 	- create default folder - done
 	- create dinamic folders - ongoing
 		- create daily tasks function - done
-		- create weekly tasks fn
+		- create weekly tasks fn - done
+  - implement we storage - 

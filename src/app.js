@@ -1,4 +1,4 @@
-import { compareAsc, format } from 'date-fns';
+import { compareAsc, format, sub, isWithinInterval } from 'date-fns';
 import {Project, Task, Note} from './constructor'
 import {Projectform, Taskform, Noteform, overlay, addProjectBtn, addTaskBtn, addNoteBtn, projectsNode,toggleProjectForm, openForm, closeForm} from './dom'
 const store = [],
@@ -146,10 +146,20 @@ function getDailyTasks() {
 }
 function getWeeklyTasks() {
 	const today = new Date(),
-	lastDay = today+5;
-	console.log(lastDay)
+	weeklyTasks = new Project ('Weekly'),
+	minDate = sub (new Date(), {days:1}),
+	maxDate = sub(minDate, {days:-7});
+	projects.forEach( function(project, index) {
+		project.tasks.forEach( function(task, index) {
+			if (isWithinInterval (task.due, {
+			start: minDate,
+			end: maxDate,})) {
+				weeklyTasks.tasks.push(task);
+			}
+	})});
+	openProject(weeklyTasks,0);
+	hide()
 }
-getWeeklyTasks()
 function hide() {
 	addTaskBtn.classList.add('hide');
 	addNoteBtn.classList.add('hide');
@@ -164,5 +174,6 @@ export  {
 	projects,
 	getDailyTasks,
 	show,
+	getWeeklyTasks,
 }; 
 

@@ -10,6 +10,7 @@ addNoteBtn = document.querySelector("button.add-note"),
 projectsNode = document.querySelector("ul.projects"),
 homeBtn = document.querySelector("button.home"),
 todayBtn = document.querySelector("button.today"),
+weekBtn = document.querySelector("button.week"),
 myDate = document.querySelector("#due"),
 today = new Date();
 myDate.value = today.toISOString().substr(0, 10);
@@ -43,4 +44,5 @@ export {
 	myDate,
 	today,
 	todayBtn,
+	weekBtn,
 }
