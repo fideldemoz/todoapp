@@ -1,6 +1,15 @@
 import { compareAsc, format, sub, isWithinInterval } from 'date-fns';
 import {Project, Task, Note} from './constructor'
 import {Projectform, Taskform, Noteform, overlay, addProjectBtn, addTaskBtn, addNoteBtn, projectsNode,toggleProjectForm, openForm, closeForm} from './dom'
+localStorage.setItem("projects", "[]")
+function pushProject(proj) {
+	let output = getProjects();
+	output.push(proj);
+	localStorage.setItem("projects", JSON.stringify(output))
+}
+function getProjects() {
+	return JSON.parse(localStorage.getItem('projects'));
+}
 const store = [],
 projects = [],
 home = [],
@@ -12,6 +21,8 @@ container = document.querySelector(".items");
 const d = new Project ('Default'),
 t = new Task ('Test Task',new Date(),'high','Click \"add task\" button to add another task.');
 d.tasks.push(t);
+pushProject(d);
+console.log(getProjects())
 projects.push(d);
 populateProjects();
 

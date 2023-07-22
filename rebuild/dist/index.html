@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="main.js"></script>
+  <title>To-do rebuilt</title>
+</head>
+<body>
+  <header>
+    <h1>To-do App</h1>
+  </header>
+    <nav class="projects">
+      <ul>
+        <li><button>Project One</button></li>
+        <li><button>Project Two</button></li>
+        <li><button>Project One</button></li>
+        <li><button>Project Two</button></li>
+      </ul>
+    </nav>
+  <main>
+    <div class="board">
+      <div class="task">
+        <div class="checkbox" role="checkbox"></div>
+        <h2>Task title</h2>
+        <p>22.07.2023</p>
+        <span>Remove</span>
+        
+      </div>
+<div class="task">
+        <div class="checkbox" role="checkbox"></div>
+        <h2>Task title</h2>
+        <p>22.07.2023</p>
+        <span>Remove</span>
+        
+      </div>
+      <div class="note">
+        <h2>O dia que vi ouro</h2>
+        <p>Era como qualquer dia quando comecava, mas a surpresa chegara.</p>
+        <span>Remove</span>
+      </div>
+    </div>
+    <form action="/" class="new-project">
+      <label for="project-name"><h2>New Project</h2></label>
+      <input type="text" name="name" id="project-name">
+    </form>
+    <form action="/" class="new-task">
+      <legend><h2>New task</h2></legend>
+      <label for="task-title">Task Title</label>
+      <input type="text" name="title" id="task-title">
+      <label for="task-due">Task Due</label>
+      <input type="text" name="title" id="task-due">
+      <label for="task-priority">Task Priority</label>
+      <input type="text" name="title" id="task-priority">
+      <label for="task-details">Task Details</label>
+      <textarea name="title" id="task-details"></textarea>
+    </form>
+    <form action="/" class="new-note">
+      <legend><h2>New Note</h2></legend>
+      <label for="note-title">Note Title</label>
+      <input type="text" name="title" id="note-title">
+      <label for="note-text">Task Details</label>
+      <textarea name="title" id="note-text"></textarea>
+    </form>
+    <div class="options" role="form">
+      <h2>New</h2>
+      <button>Project</button>
+      <button>Task</button>
+      <button>Note</button>
+    </div>
+    <button class="new">+</button>
+  </main>
+  <footer>
+    <ul class="nav-links">
+      <li><button>Day</button></li>
+      <li><button class="center">Home</button></li>
+      <li><button>Week</button></li>
+    </ul>
+  </footer>
+</body>
+</html>

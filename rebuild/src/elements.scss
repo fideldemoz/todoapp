@@ -1,0 +1,31 @@
+div.board {
+  display: grid;
+  grid-template: auto / 1fr 1fr;
+}
+div.task, div.note {
+  margin: 4px auto;
+  width: 200px;
+  border: 4px solid red;
+  border-radius: 2px;
+  padding: 4px;
+  display: grid;
+  &.task{
+  grid-template: 1fr .4fr / 20px repeat(2,90px);
+  }
+  &.note{
+    font-family: sans-serif;
+     white-space: wrap;
+  }
+  & [role="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border: 2px solid green;
+  }
+  & h2 {
+    font-size: 20px;
+    margin-left: 4px;
+  }
+  & p {
+    align-self: center;
+  }
+}
