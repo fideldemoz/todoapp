@@ -3,10 +3,10 @@
  width: 550px;
  height: 100%;
  background-color: rgba(239,239,239,.9);
- z-index: 1;
+ z-index: 0;
  top: 0;
 }
-div.options,form {
+.options,form {
   text-align: center;
   width: 200px;
   margin: auto;
@@ -36,28 +36,38 @@ div.options,form {
   & button {
     margin: 4px;
   }
+  & input, select {
+    height: 30px;
+    margin-bottom: 4px;
+    padding: 4px;
+  }
+  & textarea {
+    height: 60px;
+    padding: 8px;
+    margin-bottom: 8px;
+  }
 }
 .new-project {
-  height: 160px;
+  height: 140px;
   padding-top: 30px;
 }
 .new-task {
-  height: 240px;
-  & input {
-    height: 30px;
-    padding: 4px;
-  }
+  height: 320px;
 }
 .new-note {
+  height: 240px;
   & textarea {
     height: 80px;
   }
 }
-.show-form {
+div.show-form, form.show-form {
   -webkit-transform: scale(1);
      -moz-transform: scale(1);
       -ms-transform: scale(1);
        -o-transform: scale(1);
           transform: scale(1);
 
+}
+#submit {
+  min-height: 30px;
 }

@@ -3,22 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="text/javascript" src="main.js"></script>
+  <script type="text/javascript" src="main.js" defer></script>
   <title>To-do rebuilt</title>
 </head>
 <body>
   <header>
     <h1>To-do App</h1>
   </header>
-    <nav class="projects">
+  <nav class="projects">
       <ul>
         <li><button>Project One</button></li>
         <li><button>Project Two</button></li>
         <li><button>Project One</button></li>
         <li><button>Project Two</button></li>
       </ul>
-    </nav>
+  </nav>
   <main>
+    <div class="worker"></div>
     <div class="board">
       <div class="task">
         <div class="checkbox" role="checkbox"></div>
@@ -43,6 +44,7 @@
     <form action="/" class="new-project">
       <label for="project-name"><h2>New Project</h2></label>
       <input type="text" name="name" id="project-name">
+      <input type="submit" name="submit" id="submit">
     </form>
     <form action="/" class="new-task">
       <legend><h2>New task</h2></legend>
@@ -51,9 +53,14 @@
       <label for="task-due">Task Due</label>
       <input type="text" name="title" id="task-due">
       <label for="task-priority">Task Priority</label>
-      <input type="text" name="title" id="task-priority">
+      <select name="priority" id="task-priority">
+        <option value="Hard">Hard</option>
+        <option value="Medium">Medium</option>
+        <option value="Easy">Easy</option>
+      </select>
       <label for="task-details">Task Details</label>
       <textarea name="title" id="task-details"></textarea>
+      <input type="submit" name="submit" id="submit">
     </form>
     <form action="/" class="new-note">
       <legend><h2>New Note</h2></legend>
@@ -61,20 +68,21 @@
       <input type="text" name="title" id="note-title">
       <label for="note-text">Task Details</label>
       <textarea name="title" id="note-text"></textarea>
+      <input type="submit" name="submit" id="submit">
     </form>
     <div class="options" role="form">
       <h2>New</h2>
-      <button>Project</button>
-      <button>Task</button>
-      <button>Note</button>
+      <button class="menu project">Project</button>
+      <button class="menu task">Task</button>
+      <button class="menu note">Note</button>
     </div>
     <button class="new">+</button>
   </main>
   <footer>
     <ul class="nav-links">
-      <li><button>Day</button></li>
+      <li><button class="daily">Day</button></li>
       <li><button class="center">Home</button></li>
-      <li><button>Week</button></li>
+      <li><button class="weekly">Week</button></li>
     </ul>
   </footer>
 </body>

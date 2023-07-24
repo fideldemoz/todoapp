@@ -37,6 +37,7 @@ body
     &:hover
       background-color: #ccc
       color: #000
+      transform: scale(1.1)
 ul
   list-style: none
 header
@@ -81,6 +82,12 @@ button.new
   right: 0
   &:hover
     border: 4px solid #faa
+    transform: scale(1.1)
 main
   overflow-x: scroll
   white-space: nowrap
+::-webkit-scrollbar
+  width: 0
+  height: 0
+.deep
+  z-index: -1
