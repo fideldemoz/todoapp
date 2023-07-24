@@ -11,10 +11,10 @@ formNodes = {
   },
   "task": {
     "parent":document.querySelector('form.new-task'),
-    "title": document.querySelector('#task-title').value,
-    "due": document.querySelector('#task-due').value,
-    "level": document.querySelector('#task-priority').value,
-    "outro": document.querySelector('#task-details').value,
+    "title": document.querySelector('#task-title'),
+    "due": document.querySelector('#task-due'),
+    "level": document.querySelector('#task-priority'),
+    "outro": document.querySelector('#task-details'),
   },
   "note": {
     "parent": document.querySelector('form.new-note'),

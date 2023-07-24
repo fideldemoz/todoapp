@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src="main.js" defer></script>
+  <script type="text/javascript" src="form-handler.js" defer></script>
   <title>To-do rebuilt</title>
 </head>
 <body>
@@ -20,7 +21,7 @@
   </nav>
   <main>
     <div class="worker"></div>
-    <div class="board">
+    <div class="board" data-index="">
       <div class="task">
         <div class="checkbox" role="checkbox"></div>
         <h2>Task title</h2>
@@ -41,7 +42,7 @@
         <span>Remove</span>
       </div>
     </div>
-    <form action="/" class="new-project">
+    <form action="/" method="post" class="new-project">
       <label for="project-name"><h2>New Project</h2></label>
       <input type="text" name="name" id="project-name">
       <input type="submit" name="submit" id="submit">

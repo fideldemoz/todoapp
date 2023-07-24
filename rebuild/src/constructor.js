@@ -1,25 +1,24 @@
 class Project {
-  #name;
-  #tasks = [];
-  #notes = [];
-  #available = true;
   constructor (name) {
-    this.#name = name;
+    this.name = name;
+    this.available = true;
+    this.tasks = [];
+    this.notes = [];
   }
   getName () {
-    return this.#name;
+    return this.name;
   }
   getTasks () {
-    return this.#tasks;
+    return this.tasks;
   }
   getNotes () {
-    return this.#notes;
+    return this.notes;
   }
   isAvalailable () {
-    return this.#available;
+    return this.available;
   }
   limit () {
-    this.#available = false;
+    this.available = false;
   }
 }
 class Task {
