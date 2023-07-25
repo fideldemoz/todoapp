@@ -360,36 +360,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./src/constructor.js":
-/*!****************************!*\
-  !*** ./src/constructor.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   Note: () => (/* binding */ Note),\n/* harmony export */   Project: () => (/* binding */ Project),\n/* harmony export */   Task: () => (/* binding */ Task)\n/* harmony export */ });\nclass Project {\n  constructor (name) {\n    this.name = name;\n    this.available = true;\n    this.tasks = [];\n    this.notes = [];\n  }\n  getName () {\n    return this.name;\n  }\n  getTasks () {\n    return this.tasks;\n  }\n  getNotes () {\n    return this.notes;\n  }\n  isAvalailable () {\n    return this.available;\n  }\n  limit () {\n    this.available = false;\n  }\n}\nclass Task {\n  constructor (title, due, level, outro) {\n    this.title = title;\n    this.due = new Date(due);\n    this.level = level;\n    this.outro = outro;\n    this.completed = false;\n  }\n  getTitle() {\n    return this.title;\n  }\n  getDueDate() {\n    return this.due;\n  }\n  getLevel() {\n    return this.level;\n  }\n  getOutro () {\n    return this.outro;\n  }\n  setTitle (string) {\n    this.title = string;\n  }\n  setDue (date) {\n    this.due = date;\n  }\n  setLevel (string) {\n    this.level = string;\n  }\n  setOutro (string) {\n    this.outro = string;\n  }\n  isCompleted () {\n    this.completed = true;\n  }\n  checkCompletion() {\n    return this.completed;\n  }\n}\nclass Note {\n  constructor (title, text) {\n    this.title = title;\n    this.text = text;\n    this.available = true;\n  }\n  getTitle() {\n    return this.title;\n  }\n  getText() {\n    return this.text;\n  }\n  setTitle(string) {\n    this.title = string;\n  }\n  setText (string) {\n    this.text = string;\n  }\n  isAvalailable () {\n    return this.available;\n  }\n  limit () {\n    this.available = false;\n  }\n}\n\n\n\n//# sourceURL=webpack://rebuild/./src/constructor.js?");
-
-/***/ }),
-
-/***/ "./src/form-handler.js":
-/*!*****************************!*\
-  !*** ./src/form-handler.js ***!
-  \*****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node.js */ \"./src/node.js\");\n/* harmony import */ var _forms_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./forms.js */ \"./src/forms.js\");\n/* harmony import */ var _constructor_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./constructor.js */ \"./src/constructor.js\");\n/* harmony import */ var _storage_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./storage.js */ \"./src/storage.js\");\n/* harmony import */ var _populate_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./populate.js */ \"./src/populate.js\");\n\n\n\n\n\n\n(function Addproject (argument) {\n  const project = _node_js__WEBPACK_IMPORTED_MODULE_0__.formNodes.project,\n  projectForm = project.parent,\n  name = project.name;\n\n  const task = _node_js__WEBPACK_IMPORTED_MODULE_0__.formNodes.task,\n  taskForm = task.parent,\n  title = task.title,\n  due = task.due,\n  level = task.level,\n  outro = task.outro;\n\n  const note = _node_js__WEBPACK_IMPORTED_MODULE_0__.formNodes.note,\n  noteForm = note.parent,\n  noteTitle = note.title,\n  noteText = note.text;\n\n  projectForm.addEventListener('submit', (e) => {\n    e.preventDefault();\n    const createdProject = new _constructor_js__WEBPACK_IMPORTED_MODULE_2__.Project(name.value);\n    _storage_js__WEBPACK_IMPORTED_MODULE_3__.projects.push(createdProject)\n    localStorage.setItem('projects', JSON.stringify(_storage_js__WEBPACK_IMPORTED_MODULE_3__.projects))\n    e.target.reset();\n    (0,_forms_js__WEBPACK_IMPORTED_MODULE_1__.hideForm)('project')\n    ;(0,_forms_js__WEBPACK_IMPORTED_MODULE_1__.toggleMenu)()\n    ;(0,_populate_js__WEBPACK_IMPORTED_MODULE_4__.populateProjects)(createdProject)\n  })\n  taskForm.addEventListener('submit', (e) => {\n    e.preventDefault();\n    const createdTask = new _constructor_js__WEBPACK_IMPORTED_MODULE_2__.Task (title.value, due.value, level.value, outro.value);\n    const board = document.querySelector('.board'),\n    index = board.dataset.index || 0;\n    _storage_js__WEBPACK_IMPORTED_MODULE_3__.projects[index].tasks.push(createdTask)\n    localStorage.setItem('projects', JSON.stringify(_storage_js__WEBPACK_IMPORTED_MODULE_3__.projects))\n    e.target.reset()\n    ;(0,_forms_js__WEBPACK_IMPORTED_MODULE_1__.hideForm)('task')\n    ;(0,_forms_js__WEBPACK_IMPORTED_MODULE_1__.toggleMenu)()\n    ;(0,_populate_js__WEBPACK_IMPORTED_MODULE_4__.populateTasks)(createdTask)\n    })\n  noteForm.addEventListener('submit', (e) => {\n    e.preventDefault();\n    const createdNote = new _constructor_js__WEBPACK_IMPORTED_MODULE_2__.Note (noteTitle.value, noteText.value);\n    const board = document.querySelector('.board'),\n    index = board.dataset.index || 0;\n    _storage_js__WEBPACK_IMPORTED_MODULE_3__.projects[index].notes.push(createdNote)\n    localStorage.setItem('projects', JSON.stringify(_storage_js__WEBPACK_IMPORTED_MODULE_3__.projects))\n    e.target.reset()\n    ;(0,_forms_js__WEBPACK_IMPORTED_MODULE_1__.hideForm)('note')\n    ;(0,_forms_js__WEBPACK_IMPORTED_MODULE_1__.toggleMenu)()\n    ;(0,_populate_js__WEBPACK_IMPORTED_MODULE_4__.populateNotes)(createdNote)\n  })\n})()\n\n//# sourceURL=webpack://rebuild/./src/form-handler.js?");
-
-/***/ }),
-
-/***/ "./src/forms.js":
-/*!**********************!*\
-  !*** ./src/forms.js ***!
-  \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   hideForm: () => (/* binding */ hideForm),\n/* harmony export */   newB: () => (/* binding */ newB),\n/* harmony export */   newNote: () => (/* binding */ newNote),\n/* harmony export */   newProject: () => (/* binding */ newProject),\n/* harmony export */   newTask: () => (/* binding */ newTask),\n/* harmony export */   showForm: () => (/* binding */ showForm),\n/* harmony export */   toggleMenu: () => (/* binding */ toggleMenu)\n/* harmony export */ });\n/* harmony import */ var _node_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./node.js */ \"./src/node.js\");\n  \n\nconst newB = document.querySelector('button.new'),\nmenu = document.querySelector('div.options'),\ntoggleMenu = () => {\n  menu.classList.toggle('show-form')\n  newB.textContent === '-' ? newB.textContent = '+' : newB.textContent = '-';\n},\nshowForm = (folder) => {\n  switch (folder) {\n    case 'project':\n      _node_js__WEBPACK_IMPORTED_MODULE_0__.formNodes.project.parent.classList.add('show-form');\n      break;\n    case 'note':\n      _node_js__WEBPACK_IMPORTED_MODULE_0__.formNodes.note.parent.classList.add('show-form');\n      break;\n    case 'task':\n      _node_js__WEBPACK_IMPORTED_MODULE_0__.formNodes.task.parent.classList.add('show-form');\n      break;\n  }\n  newB.classList.add('deep');\n  toggleMenu();\n  showOverlay()\n},\nhideForm = (folder) => {\n  switch (folder) {\n    case 'project':\n      _node_js__WEBPACK_IMPORTED_MODULE_0__.formNodes.project.parent.classList.remove('show-form');\n      break;\n    case 'note':\n      _node_js__WEBPACK_IMPORTED_MODULE_0__.formNodes.note.parent.classList.remove('show-form');\n      break;\n    case 'task':\n      _node_js__WEBPACK_IMPORTED_MODULE_0__.formNodes.task.parent.classList.remove('show-form');\n      break;\n  }\n  newB.classList.remove('deep');\n  toggleMenu();\n  hideOverlay()\n},\nnewProject = document.querySelector('button.menu.project'),\nnewTask = document.querySelector('button.menu.task'),\nnewNote = document.querySelector('button.menu.note');\nfunction showOverlay() {\n  _node_js__WEBPACK_IMPORTED_MODULE_0__.main.classList.add('overlay');\n}\nfunction hideOverlay() {\n  _node_js__WEBPACK_IMPORTED_MODULE_0__.main.classList.remove('overlay');\n}\n\n\n\n//# sourceURL=webpack://rebuild/./src/forms.js?");
-
-/***/ }),
-
 /***/ "./src/node.js":
 /*!*********************!*\
   !*** ./src/node.js ***!
@@ -490,7 +460,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	var __webpack_exports__ = __webpack_require__("./src/form-handler.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/populate.js");
 /******/ 	
 /******/ })()
 ;

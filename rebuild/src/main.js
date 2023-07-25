@@ -1,8 +1,14 @@
 import './styles.sass';
 import './forms.scss';
 import './elements.scss';
-import {main} from './node.js'
-import { newTask, newProject, newNote, newB, showForm, hideForm, toggleMenu} from './forms.js'
+import {main} from './node.js';
+import { newTask, newProject, newNote, newB, showForm, hideForm, toggleMenu} from './forms.js';
+import {projects} from './storage.js';
+import {populateAll} from './populate.js';
+
+window.addEventListener('load', () => {
+  populateAll();
+})
 
 newTask.addEventListener('click', () => {
   showForm('task');

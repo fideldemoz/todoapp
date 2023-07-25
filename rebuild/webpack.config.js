@@ -4,7 +4,8 @@ module.exports = {
   mode: 'development',
   entry: {
     main: './src/main.js',
-    "form-handler": './src/form-handler.js'
+    "form-handler": './src/form-handler.js',
+    populate: './src/populate.js'
   },
   output: {
     filename: '[name].js',

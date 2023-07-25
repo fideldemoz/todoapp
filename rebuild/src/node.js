@@ -37,13 +37,13 @@ taskNodes = function createTaskNode (title,due, priority) {
   span.innerHTML = 'Remove';
   switch (priority) {
     case 'Hard':
-      parent.style.border = '2px solid red';
+      parent.style.border = '4px solid red';
       break;
     case 'Medium':
-      parent.style.border = '2px solid green';
+      parent.style.border = '4px solid green';
       break;
     default:
-      parent.style.border = '2px solid gray';
+      parent.style.border = '4px solid gray';
       break;
   }
   parent.appendChild(checkbox);
@@ -58,7 +58,7 @@ noteNodes = function createTaskNode (title, text) {
   para = document.createElement('p'),
   span = document.createElement('span');
 
-  parent.classList.add('node');
+  parent.classList.add('note');
 
   titleNode.innerHTML = title;
   para.innerHTML = text;

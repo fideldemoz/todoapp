@@ -13,10 +13,6 @@
   </header>
   <nav class="projects">
       <ul>
-        <li><button>Project One</button></li>
-        <li><button>Project Two</button></li>
-        <li><button>Project One</button></li>
-        <li><button>Project Two</button></li>
       </ul>
   </nav>
   <main>
@@ -27,14 +23,12 @@
         <h2>Task title</h2>
         <p>22.07.2023</p>
         <span>Remove</span>
-        
       </div>
-<div class="task">
+      <div class="task">
         <div class="checkbox" role="checkbox"></div>
         <h2>Task title</h2>
         <p>22.07.2023</p>
-        <span>Remove</span>
-        
+        <span>Remove</span>  
       </div>
       <div class="note">
         <h2>O dia que vi ouro</h2>
@@ -52,7 +46,7 @@
       <label for="task-title">Task Title</label>
       <input type="text" name="title" id="task-title">
       <label for="task-due">Task Due</label>
-      <input type="text" name="title" id="task-due">
+      <input type="date" name="due" id="task-due">
       <label for="task-priority">Task Priority</label>
       <select name="priority" id="task-priority">
         <option value="Hard">Hard</option>
@@ -60,7 +54,7 @@
         <option value="Easy">Easy</option>
       </select>
       <label for="task-details">Task Details</label>
-      <textarea name="title" id="task-details"></textarea>
+      <textarea name="details" id="task-details"></textarea>
       <input type="submit" name="submit" id="submit">
     </form>
     <form action="/" class="new-note">

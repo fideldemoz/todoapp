@@ -22,73 +22,67 @@ class Project {
   }
 }
 class Task {
-  #title;
-  #due;
-  #level;
-  #outro;
-  #completed = false;
   constructor (title, due, level, outro) {
-    this.#title = title;
-    this.#due = new Date(due);
-    this.#level = level;
-    this.#outro = outro;
+    this.title = title;
+    this.due = new Date(due);
+    this.level = level;
+    this.outro = outro;
+    this.completed = false;
   }
   getTitle() {
-    return this.#title;
+    return this.title;
   }
   getDueDate() {
-    return this.#due;
+    return this.due;
   }
   getLevel() {
-    return this.#level;
+    return this.level;
   }
   getOutro () {
-    return this.#outro;
+    return this.outro;
   }
   setTitle (string) {
-    this.#title = string;
+    this.title = string;
   }
   setDue (date) {
-    this.#due = date;
+    this.due = date;
   }
   setLevel (string) {
-    this.#level = string;
+    this.level = string;
   }
   setOutro (string) {
-    this.#outro = string;
+    this.outro = string;
   }
   isCompleted () {
     this.completed = true;
   }
   checkCompletion() {
-    return this.#completed;
+    return this.completed;
   }
 }
 class Note {
-  #title;
-  #text;
-  #available = true;
   constructor (title, text) {
-    this.#title = title;
-    this.#text = text;
+    this.title = title;
+    this.text = text;
+    this.available = true;
   }
   getTitle() {
-    return this.#title;
+    return this.title;
   }
   getText() {
-    return this.#text;
+    return this.text;
   }
   setTitle(string) {
-    this.#title = string;
+    this.title = string;
   }
   setText (string) {
-    this.#text = string;
+    this.text = string;
   }
   isAvalailable () {
-    return this.#available;
+    return this.available;
   }
   limit () {
-    this.#available = false;
+    this.available = false;
   }
 }
 

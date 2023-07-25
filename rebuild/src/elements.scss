@@ -1,6 +1,7 @@
 div.board {
   display: grid;
   grid-template: auto / 1fr 1fr;
+  place-items: center
 }
 div.task, div.note {
   margin: 4px auto;
@@ -27,5 +28,6 @@ div.task, div.note {
   }
   & p {
     align-self: center;
+    white-space: pre-wrap;
   }
 }
