@@ -68,10 +68,11 @@ noteNodes = function createTaskNode (title, text) {
   parent.appendChild(span);
   return parent;
 },
-projectNode = function (Text) {
+projectNode = function (Text,index) {
   const li = document.createElement('li'),
   button = document.createElement('button');
   button.textContent = Text;
+  button.setAttribute('data-index', index)
   li.appendChild(button);
   return li;
 },

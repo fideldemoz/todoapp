@@ -27,9 +27,11 @@ import {populateNotes, populateProjects, populateTasks} from './populate.js';
     projects.push(createdProject)
     localStorage.setItem('projects', JSON.stringify(projects))
     e.target.reset();
+    let index = 0;
     hideForm('project')
     toggleMenu()
-    populateProjects(createdProject)
+    populateProjects(createdProject,index)
+    index++
   })
   taskForm.addEventListener('submit', (e) => {
     e.preventDefault();

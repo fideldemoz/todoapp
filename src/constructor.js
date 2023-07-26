@@ -1,3 +1,4 @@
+import {format} from 'date-fns';
 class Project {
 	tasks = [];
 	notes = [];
@@ -24,7 +25,7 @@ class Project {
 class Task {
 	constructor (title, due, priority, details) {
 		this.title = title;
-		this.due = new Date(due);
+		this.due = format(new Date(due), 'yyyy-MM-dd');
 		this.priority = priority;
 		this.details = details;
 	}

@@ -1,36 +1,33 @@
-import { compareAsc, format, sub, isWithinInterval } from 'date-fns';
+import { compareAsc, format, sub, isWithinInterval, parseISO } from 'date-fns';
 import {Project, Task, Note} from './constructor'
 import {Projectform, Taskform, Noteform, overlay, addProjectBtn, addTaskBtn, addNoteBtn, projectsNode,toggleProjectForm, openForm, closeForm} from './dom'
-localStorage.setItem("projects", "[]")
-function pushProject(proj) {
-	let output = getProjects();
-	output.push(proj);
-	localStorage.setItem("projects", JSON.stringify(output))
-}
-function getProjects() {
-	return JSON.parse(localStorage.getItem('projects'));
-}
-const store = [],
-projects = [],
+
+const projects = JSON.parse(localStorage.getItem("projects")) || [],
 home = [],
 today = [],
 week = [],
 notes = [],
 nome = document.querySelector(".nome"),
 container = document.querySelector(".items");
-const d = new Project ('Default'),
-t = new Task ('Test Task',new Date(),'high','Click \"add task\" button to add another task.');
-d.tasks.push(t);
-pushProject(d);
-console.log(getProjects())
-projects.push(d);
-populateProjects();
+function defaultProject () {
+	if (projects.length === 0) {
+		const d = new Project ('Inbox'),
+		t = new Task ('Test Task',new Date(),'high','Click \"add task\" button to add another task.');
+		d.tasks.push(t);
+		projects.push(d);
+		localStorage.setItem("projects", JSON.stringify(projects))
+	}
+	populateProjects();
+	openProject(projects[0],0);
+}
+window.addEventListener('load', defaultProject)
 
 Projectform.addEventListener('submit', (e) => {
 	e.preventDefault();
 	const name = document.querySelector("#project-name").value,
 	project = new Project (name);
 	projects.push(project)
+	localStorage.setItem("projects", JSON.stringify(projects))
 	toggleProjectForm()
 	populateProjects()
 	e.target.reset()
@@ -45,6 +42,7 @@ Taskform.addEventListener("submit", (e) => {
 	const currentFolder = document.querySelector('.items'),
 	index = currentFolder.dataset.index;
 	projects[index].tasks.push(task);
+	localStorage.setItem("projects", JSON.stringify(projects));
 	populateTasks(projects[index]);
 	closeForm();
 	e.target.reset()
@@ -57,6 +55,7 @@ Noteform.addEventListener("submit", (e) => {
 	currentFolder = document.querySelector('.items'),
 	index = currentFolder.dataset.index;
 	projects[index].notes.push(note);
+	localStorage.setItem("projects", JSON.stringify(projects));
 	closeForm()
 	populateNotes(projects[index])
 	e.target.reset()
@@ -89,7 +88,7 @@ function populateTasks (project) {
 		p4 = document.createElement("p"),
 		hr = document.createElement("hr");
 		p1.textContent = `Nome da tarefa: ${element.title}`;
-		p2.textContent = `Due:  ${format(element.due, 'iii LLL dd, yyyy')}`;
+		p2.textContent = `Due:  ${element.due}`;
 		p3.textContent = `Priority:  ${element.priority}`;
 		p4.textContent = `Details: ${element.details}`;
 		cnt.appendChild(p1);
@@ -144,10 +143,10 @@ overlay.addEventListener("click", closeForm)
 
 function getDailyTasks() {
 	const today = new Date(),
-	dailyTasks = new Project ('daily');
+	dailyTasks = new Project ('Today');
 	projects.forEach( function(project, index) {
 		project.tasks.forEach( function(task, index) {
-			if (format(today, 'MM-dd-yyyy') === format(task.due, 'MM-dd-yyyy')) {
+			if (format(today, 'yyyy-MM-dd') === task.due) {
 				dailyTasks.tasks.push(task);
 			}
 		});
@@ -157,12 +156,12 @@ function getDailyTasks() {
 }
 function getWeeklyTasks() {
 	const today = new Date(),
-	weeklyTasks = new Project ('Weekly'),
+	weeklyTasks = new Project ('This week'),
 	minDate = sub (new Date(), {days:1}),
 	maxDate = sub(minDate, {days:-7});
 	projects.forEach( function(project, index) {
 		project.tasks.forEach( function(task, index) {
-			if (isWithinInterval (task.due, {
+			if (isWithinInterval (parseISO(task.due), {
 			start: minDate,
 			end: maxDate,})) {
 				weeklyTasks.tasks.push(task);

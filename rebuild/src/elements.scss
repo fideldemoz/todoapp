@@ -1,7 +1,10 @@
 div.board {
   display: grid;
   grid-template: auto / 1fr 1fr;
-  place-items: center
+  place-items: center;
+  & h1.nome {
+    grid-area: 1/1/2/3;
+  }
 }
 div.task, div.note {
   margin: 4px auto;

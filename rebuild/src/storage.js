@@ -1,3 +1,3 @@
-const projects = JSON.parse(localStorage.getItem("projects")) || [];
+const projects = JSON.parse(localStorage.getItem("projects")) || []; 
 
 export {projects};
