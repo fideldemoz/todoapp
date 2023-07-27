@@ -35,6 +35,9 @@ class Task {
 		this.priority = priority;
 		this.details = details;
 	}
+	completed () {
+		this.completed = true;
+	}
 }
 class Note {
 	constructor (title,text) {

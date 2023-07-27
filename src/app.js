@@ -66,12 +66,8 @@ function populateNotes (project) {
 	notes = project.notes;
 	wrapper.innerHTML = '';
 	notes.forEach( function(element, index) {
-		const h1 = document.createElement('h1'),
-		text = document.createElement('p');
-		h1.textContent = element.title;
-		text.textContent = element.text;
-		cnt.appendChild(h1);
-		cnt.appendChild(text);
+		const noteWrapper = document.querySelector('div.notes');
+		noteWrapper.appendChild(createNoteNode(element.title, element.text))
 	})
 	wrapper.appendChild(cnt);
 	
@@ -82,22 +78,56 @@ function populateTasks (project) {
 	tasks = project.tasks;
 	wrapper.innerHTML = '';
 	tasks.forEach( function(element, index) {
-		const p1 = document.createElement("p"),
-		p2 = document.createElement("p"),
-		p3 = document.createElement("p"),
-		p4 = document.createElement("p"),
-		hr = document.createElement("hr");
-		p1.textContent = `Nome da tarefa: ${element.title}`;
-		p2.textContent = `Due:  ${element.due}`;
-		p3.textContent = `Priority:  ${element.priority}`;
-		p4.textContent = `Details: ${element.details}`;
-		cnt.appendChild(p1);
-		cnt.appendChild(p2);
-		cnt.appendChild(p3);
-		cnt.appendChild(p4);
-		cnt.appendChild(hr);
+		const taskWrapper = document.querySelector('div.tasks');
+		taskWrapper.appendChild(createTaskNode(element.title, element.due, element.priority))
 	});
 	wrapper.appendChild(cnt)
+}
+function createTaskNode (title,due, priority) {
+  const parent = document.createElement('div'),
+  checkbox  = document.createElement('div'),
+  titleNode = document.createElement('h2'),
+  para = document.createElement('p'),
+  span = document.createElement('span');
+
+  parent.classList.add('task');
+  checkbox.setAttribute('role', 'checkbox')
+
+  titleNode.innerHTML = title;
+  para.innerHTML = due;
+  span.innerHTML = 'Remove';
+  switch (priority) {
+    case 'high':
+      parent.style.border = '4px solid red';
+      break;
+    case 'medium':
+      parent.style.border = '4px solid green';
+      break;
+    case 'low':
+      parent.style.border = '4px solid gray';
+      break;
+  }
+  parent.appendChild(checkbox);
+  parent.appendChild(titleNode);
+  parent.appendChild(para);
+  parent.appendChild(span);
+  return parent;
+}
+function createNoteNode (title, text) {
+  const parent = document.createElement('div'),
+  titleNode = document.createElement('h2'),
+  para = document.createElement('p'),
+  span = document.createElement('span');
+
+  parent.classList.add('note');
+
+  titleNode.innerHTML = title;
+  para.innerHTML = text;
+  span.innerHTML = 'Remove';
+  parent.appendChild(titleNode);
+  parent.appendChild(para);
+  parent.appendChild(span);
+  return parent;
 }
 function populateProjects () {
 	projectsNode.innerHTML = '';
@@ -116,7 +146,8 @@ function populateProjects () {
 	clickProject()
 }
 function clickProject () {
-	let btnList = document.querySelectorAll("ul.projects>li>button");
+	let btnList = document.querySelectorAll("ul.projects>li>button"),
+	items = document.querySelector('div.items');
 	btnList.forEach((element,i) => {
 		i++
 			element.addEventListener("click", () => {
@@ -179,11 +210,28 @@ function show() {
 	addNoteBtn.classList.remove('hide');
 }
 
+function activeFolder () {
+	const btns = document.querySelectorAll('li button');
+	const home = document.querySelector('button.home');
+	const items = document.querySelector('div.items')
+	btns.forEach( function(button, index) {
+		button.classList.remove('active');
+		home.classList.add('active');
+		button.addEventListener('click', () => {
+			if (button.textContent === items.dataset.project) {
+				home.classList.remove('active');
+				button.classList.add('active')
+			}
+		})
+	});
+}
+
 export  {
 	openProject,
 	projects,
 	getDailyTasks,
 	show,
 	getWeeklyTasks,
+	activeFolder
 }; 
 
